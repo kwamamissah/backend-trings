@@ -1,4 +1,5 @@
 class Api::V1::LikesController < ApplicationController
+  before_action :authenticate!, only: [:create]
   def new
   end
 
