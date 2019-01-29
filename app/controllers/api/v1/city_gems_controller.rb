@@ -1,5 +1,5 @@
 class Api::V1::CityGemsController < ApplicationController
-  def new
+  def index
     render json: CityGem.all
   end
 

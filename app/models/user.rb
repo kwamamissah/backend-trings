@@ -3,5 +3,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :city_gems, through: :likes
 
-  validates :username, uniqueness: { case_sensitive: false }
+  has_secure_password
+  validates :username, uniqueness: true, case_sensitive: false
+  validates :email, presence: true, uniqueness: true, format:{
+    with: /.+\@.+\../
+  }
 end

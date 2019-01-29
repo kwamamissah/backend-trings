@@ -1,27 +1,23 @@
 class Api::V1::UsersController < ApplicationController
-  def new
+
+  def index
+    @users = User.all
+    render json: @users, status: :ok
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
+    @user = User.new(user_params)
+    if @user.save
       render json: @user, status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
   end
 
-  def show
-  end
+
 
   private
   def user_params
