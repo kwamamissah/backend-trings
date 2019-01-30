@@ -12,7 +12,7 @@ categories.each do |category|
   Category.create(name: category)
 end
 
-users = [{first_name: "Kwamena", last_name: "Amissah", username: "kwamamissah", email: "kwamamissah@yahoo.com", password_digest: "kwam", img_url: "https://avatars0.githubusercontent.com/u/41170219?s=460&v=4"}, {first_name: "Dev", last_name: "Vega", username: "vega", email: "devon@gmail.com", password: "dev", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Massive_Smash-Up_at_Vega.jpg/560px-Massive_Smash-Up_at_Vega.jpg"} ]
+users = [{first_name: "Kwamena", last_name: "Amissah", username: "kwamamissah", email: "kwamamissah@yahoo.com", password: "kwam", img_url: "https://avatars0.githubusercontent.com/u/41170219?s=460&v=4"}, {first_name: "Dev", last_name: "Vega", username: "vega", email: "devon@gmail.com", password: "dev", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Massive_Smash-Up_at_Vega.jpg/560px-Massive_Smash-Up_at_Vega.jpg"} ]
 
 users.each do |user|
   User.create(user)
