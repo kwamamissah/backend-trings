@@ -2,7 +2,8 @@ class Api::V1::CityGemsController < ApplicationController
   before_action :authenticate!, only: [:create]
 
   def index
-    render json: CityGem.all
+    @gems = CityGem.all
+    render json: @gems.to_json(include: :category)
   end
 
   def create
