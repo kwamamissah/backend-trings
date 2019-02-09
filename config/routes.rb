@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create, :index]
-      resources :city_gems, only: [:create, :index]
+      resources :city_gems, only: [:create, :index] do
+        resources :likes
+        resources :comments
+      end
       post '/login', to: 'login#login', as: 'login'
 
       # get 'likes/new'
