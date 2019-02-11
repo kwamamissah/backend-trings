@@ -7,6 +7,7 @@ class CreateCityGems < ActiveRecord::Migration[5.2]
       t.string :img_url
       t.integer :category_id
       t.string :hours
+      t.string :website
 
       t.timestamps
     end

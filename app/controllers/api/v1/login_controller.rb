@@ -6,7 +6,7 @@ class Api::V1::LoginController < ApplicationController
       token = JWT.encode({ user_id: @user.id }, ENV['SECRET'], 'HS256')
       render json: { token: token, username: @user.username, first_name: @user.first_name }, status: :accepted
     else
-      render json: { errors: 'invalid login '}, status: :unauthorized
+      render json: { errors: 'invalid login: check username && password '}, status: :unauthorized
     end
   end
 end
