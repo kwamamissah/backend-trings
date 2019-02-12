@@ -1,13 +1,16 @@
 class Api::V1::LikesController < ApplicationController
   before_action :authenticate!
+  before_action :find_city_gem, only: [:create]
   before_action :find_like, only: [:destroy]
 
   def create
     if already_liked?
-    render json: { errors: @like.errors.full_messages }, status: :conflict
-  else
-    @like = @city_gem.likes.create(user_id: current_user)
+    @like = Like.where(user_id: current_user, city_gem_id: params[:city_gem_id])
     render json: @like
+  else
+    @like = @city_gem.likes.create(user_id: current_user.id)
+    render json: @like
+
     end
   end
 

@@ -3,7 +3,7 @@ class Api::V1::CityGemsController < ApplicationController
 
   def index
     @gems = CityGem.all
-    render json: @gems.to_json(include: :category)
+    render json: @gems.to_json(:include => [:category, :likes])
   end
 
   def create
@@ -15,14 +15,6 @@ class Api::V1::CityGemsController < ApplicationController
     end
   end
 
-  # def update
-  # end
-  #
-  # def destroy
-  # end
-  #
-  # def show
-  # end
 
   private
   def city_gem_params
