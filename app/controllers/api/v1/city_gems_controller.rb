@@ -3,7 +3,8 @@ class Api::V1::CityGemsController < ApplicationController
 
   def index
     @gems = CityGem.all
-    render json: @gems.to_json(:include => [:category, :likes])
+    render json: @gems.to_json(:include => [ {:comments => {
+      :include => :user}},:category, :likes,])
   end
 
   def create

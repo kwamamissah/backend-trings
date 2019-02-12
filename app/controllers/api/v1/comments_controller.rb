@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
       @comment = Comment.new(comment_params)
       @comment.city_gem_id = params[:city_gem_id]
-      @comment.user_id = current_user
+      @comment.user_id = current_user.id
       if @comment.save
         render json: @comment, status: :created
       else
