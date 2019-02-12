@@ -6,7 +6,8 @@ class Api::V1::LikesController < ApplicationController
     if already_liked?
     render json: { errors: @like.errors.full_messages }, status: :conflict
   else
-    @city_gem.likes.create(user_id: current_user)
+    @like = @city_gem.likes.create(user_id: current_user)
+    render json: @like
     end
   end
 
