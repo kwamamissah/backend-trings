@@ -3,6 +3,7 @@ class Api::V1::LikesController < ApplicationController
   before_action :find_city_gem, only: [:create]
   before_action :find_like, only: [:destroy]
 
+
   def create
     if already_liked?
     @like = Like.where(user_id: current_user, city_gem_id: params[:city_gem_id])

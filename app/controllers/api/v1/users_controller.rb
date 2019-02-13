@@ -3,7 +3,8 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users, status: :ok
+    render json: @users.to_json(:include =>  {:likes => {
+      :include => :city_gem}}), status: :ok
   end
 
   def profile
@@ -13,7 +14,8 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: @user.as_json, status: :created
+      token = JWT.encode({ user_id: @user.id }, ENV['SECRET'], 'HS256')
+      render json: { token: token, username: @user.username, first_name: @user.first_name, id: @user.id }, status: :accepted
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
