@@ -7,9 +7,6 @@ class Api::V1::UsersController < ApplicationController
       :include => :city_gem}}), status: :ok
   end
 
-  def profile
-    render json: current_user.profile_json, status: :ok
-  end
 
   def create
     @user = User.new(user_params)
