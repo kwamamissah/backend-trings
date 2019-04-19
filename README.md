@@ -1,24 +1,7 @@
-# README
+Trings 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trendy x Things 
 
-Things you may want to cover:
+Unlock the Gems in your city. Web App to find out what there is to do in the city you are visiting(currently only in Atlanta) 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Backend is written with Ruby on Rails
